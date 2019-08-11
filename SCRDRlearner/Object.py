@@ -72,8 +72,8 @@ def getObject(wordTags, index):#Sequence of "Word/Tag"
     return Object(word, tag, preWord2, preWord1, nextWord1, nextWord2, preTag2, preTag1, nextTag1, nextTag2, suffixL2, suffixL3, suffixL4)
  
 def getObjectDictionary(initializedCorpus, goldStandardCorpus):
-    goldStandardSens = open(goldStandardCorpus, "r").readlines()
-    initializedSens = open(initializedCorpus, "r").readlines()
+    goldStandardSens = open(goldStandardCorpus, "r", encoding="utf-8").readlines()
+    initializedSens = open(initializedCorpus, "r", encoding="utf-8").readlines()
     
     objects = {}
     

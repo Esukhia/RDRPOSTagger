@@ -30,7 +30,7 @@ def createLexicon(corpusFilePath, fullLexicon):
     #else:
     #    print "Creating a short .sDict lexicon which excludes word types appearing 1 time in the gold standard training corpus"
     
-    lines = open(corpusFilePath, "r").readlines()
+    lines = open(corpusFilePath, "r", encoding="utf-8").readlines()
     wordTagCounter = {}
     for i in range(len(lines)):
         # print i
@@ -115,7 +115,7 @@ def createLexicon(corpusFilePath, fullLexicon):
     fileSuffix = ".sDict"
     if fullLexicon == 'full':
         fileSuffix = ".DICT"
-    fileOut = open(corpusFilePath + fileSuffix, "w")
+    fileOut = open(corpusFilePath + fileSuffix, "w", encoding="utf-8")
     
     
     fileOut.write("TAG4UNKN-WORD " + tag4UnknWord + "\n")

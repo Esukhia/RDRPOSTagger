@@ -41,11 +41,11 @@ class RDRPOSTagger(SCRDRTree):
         return " ".join(sen)
 
     def tagRawCorpus(self, DICT, rawCorpusPath):
-        lines = open(rawCorpusPath, "r").readlines()
+        lines = open(rawCorpusPath, "r", encoding="utf-8").readlines()
         #Change the value of NUMBER_OF_PROCESSES to obtain faster tagging process!
         pool = Pool(processes = NUMBER_OF_PROCESSES)
         taggedLines = pool.map(unwrap_self_RDRPOSTagger, zip([self] * len(lines), [DICT] * len(lines), lines))
-        outW = open(rawCorpusPath + ".TAGGED", "w")
+        outW = open(rawCorpusPath + ".TAGGED", "w", encoding="utf-8")
         for line in taggedLines:
             outW.write(line + "\n")  
         outW.close()

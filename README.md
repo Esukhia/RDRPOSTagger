@@ -1,5 +1,18 @@
 ## RDRPOSTagger ##
 
+**Usage**
+
+Example:
+
+```
+cd pSCRDRtagger
+python3 RDRPOSTagger.py train ../data/goldTrain
+python3 RDRPOSTagger.py tag ../data/goldTrain.RDR ../data/goldTrain.DICT ../data/rawTest
+cd ../Util
+python3 Eval.py ../data/rawTest.TAGGED ../data/goldTest 
+```
+
+
 ![enrdr3](https://user-images.githubusercontent.com/2412555/48744741-94d82480-ecbc-11e8-89dc-200ea85c96e4.png)
 
 **RDRPOSTagger** is a robust and easy-to-use toolkit for POS and morphological tagging. It employs an error-driven approach to automatically construct tagging rules in the form of a binary tree.

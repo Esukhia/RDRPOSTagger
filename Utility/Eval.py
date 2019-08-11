@@ -10,8 +10,8 @@ os.chdir("./Utility")
 from Utility.Utils import getWordTag, readDictionary
 
 def computeAccuracy(goldStandardCorpus, taggedCorpus):
-    tagged = open(taggedCorpus, "r").read().split()
-    goldStandard = open(goldStandardCorpus, "r").read().split()
+    tagged = open(taggedCorpus, "r", encoding="utf-8").read().split()
+    goldStandard = open(goldStandardCorpus, "r", encoding="utf-8").read().split()
     if len(tagged) != len(goldStandard):
         print("The numbers of word tokens in %s and %s are not equal!" % (goldStandardCorpus, taggedCorpus))
         return 0
@@ -34,8 +34,8 @@ def computeAccuracies(fullDictFile, goldStandardCorpus, taggedCorpus):
     """
     Return known-word accuracy, unknown-word accuracy and the overall accuracy  
     """
-    tagged = open(taggedCorpus, "r").read().split()
-    goldStandard = open(goldStandardCorpus, "r").read().split()
+    tagged = open(taggedCorpus, "r", encoding="utf-8").read().split()
+    goldStandard = open(goldStandardCorpus, "r", encoding="utf-8").read().split()
     if len(tagged) != len(goldStandard):
         print("The numbers of word tokens in %s and %s are not equal!" % (goldStandardCorpus, taggedCorpus))
         return 0
