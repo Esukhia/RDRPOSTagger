@@ -81,9 +81,9 @@ def run(args = sys.argv[1:]):
             print("\nWrite the learned tree model to file " + args[1] + ".RDR")
             rdrTree.writeToFile(args[1] + ".RDR")                
             print('\nDone!')
-            os.remove(args[1] + ".INIT")
-            os.remove(args[1] + ".RAW")
-            os.remove(args[1] + ".sDict")
+            # os.remove(args[1] + ".INIT")
+            # os.remove(args[1] + ".RAW")
+            # os.remove(args[1] + ".sDict")
         except Exception as e:
             print("\nERROR ==> ", e)
             printHelp()
