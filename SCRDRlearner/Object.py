@@ -11,9 +11,9 @@ class Object:
                   "prevTag1",
                   "nextTag1",
                   "nextTag2",
+                  "suffixL1",
                   "suffixL2",
-                  "suffixL3",
-                  "suffixL4"]
+                  "suffixL3"]
     code = "def __init__(self"
     for att in attributes:
         code = code + ", " + att + " = None"
@@ -51,14 +51,16 @@ def getObject(wordTags, index):#Sequence of "Word/Tag"
     word, tag = getWordTag(wordTags[index])
     preWord1 = preTag1 = preWord2 = preTag2 = "" 
     nextWord1 = nextTag1 = nextWord2 = nextTag2 = "" 
-    suffixL2 = suffixL3 = suffixL4 = ""
+    suffixL1 = suffixL2 = suffixL3 = ""
     
     decodedW = word
-    if len(decodedW) >= 4:
-        suffixL3 = decodedW[-3:]
-        suffixL2 = decodedW[-2:]
-    if len(decodedW) >= 5:
-        suffixL4 = decodedW[-4:]
+    syls = decodedW.split("་")
+    if len(syls) >= 2:
+        suffixL1 = "་".join(syls[-1:])
+    if len(syls) >= 3:
+        suffixL2 = "་".join(syls[-2:])
+    if len(syls) >= 4:
+        suffixL3 = "་".join(syls[-3:])
     
     if index > 0:
         preWord1, preTag1 = getWordTag(wordTags[index - 1])
@@ -69,7 +71,7 @@ def getObject(wordTags, index):#Sequence of "Word/Tag"
     if index < len(wordTags) - 2:
         nextWord2, nextTag2 = getWordTag(wordTags[index + 2]) 
     
-    return Object(word, tag, preWord2, preWord1, nextWord1, nextWord2, preTag2, preTag1, nextTag1, nextTag2, suffixL2, suffixL3, suffixL4)
+    return Object(word, tag, preWord2, preWord1, nextWord1, nextWord2, preTag2, preTag1, nextTag1, nextTag2, suffixL1, suffixL2, suffixL3)
  
 def getObjectDictionary(initializedCorpus, goldStandardCorpus):
     goldStandardSens = open(goldStandardCorpus, "r", encoding="utf-8").readlines()

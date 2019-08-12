@@ -65,12 +65,12 @@ def generateRules(object):
     rule24 = rule1 + " and " + rule16
     # 25. 2 previous tags and current word
     rule25 = rule17 + " and " + rule1
-    # 26. 2-character suffix
-    rule26 = "object.suffixL2 == \"" + object.suffixL2 + "\""
-    # 27. 3-character suffix
-    rule27 = "object.suffixL3 == \"" + object.suffixL3 + "\""
-    # 28. 4-character suffix
-    rule28 = "object.suffixL4 == \"" + object.suffixL4 + "\""
+    # 26. 1-syl suffix
+    rule26 = "object.suffixL1 == \"" + object.suffixL1 + "\""
+    # 27. 2-syl suffix
+    rule27 = "object.suffixL2 == \"" + object.suffixL2 + "\""
+    # 28. 3-syl suffix
+    rule28 = "object.suffixL3 == \"" + object.suffixL3 + "\""
     
     rules = []
     rules.append(rule1)

@@ -177,11 +177,11 @@ def getCondition(strCondition):
             condition.context[8] = value
         elif key == "nextTag2":
             condition.context[9] = value
-        elif key == "suffixL2":
+        elif key == "suffixL1":
             condition.context[10] = value
-        elif key == "suffixL3":
+        elif key == "suffixL2":
             condition.context[11] = value
-        elif key == "suffixL4":
+        elif key == "suffixL3":
             condition.context[12] = value
     for i in range(13):
         if condition.context[i] is not None:

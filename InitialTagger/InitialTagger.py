@@ -30,28 +30,52 @@ def initializeSentence(FREQDICT, sentence):
             if re.search(r"[0-9]+", word) != None:
                 tag = FREQDICT["TAG4UNKN-NUM"]
             else:
-                suffixL2 = suffixL3 = suffixL4 = suffixL5 = None
-                wLength = len(decodedW)
+                suffixL2 = suffixL3 = suffixL4 = suffixL1 = None
+                syls = decodedW.split("་")
+                wLength = len(syls)
+                if wLength >= 2:
+                    suffixL1 = ".*" + '་'.join(syls[-1:])
+                if wLength >= 3:
+                    suffixL2 = ".*" + '་'.join(syls[-2:])
                 if wLength >= 4:
-                    suffixL3 = ".*" + decodedW[-3:]
-                    suffixL2 = ".*" + decodedW[-2:]
+                    suffixL3 = ".*" + '་'.join(syls[-3:])
                 if wLength >= 5:
-                    suffixL4 = ".*" + decodedW[-4:]
-                if wLength >= 6:
-                    suffixL5 = ".*" + decodedW[-5:]
+                    suffixL4 = ".*" + '་'.join(syls[-4:])
                 
-                if suffixL5 in FREQDICT:
-                    tag = FREQDICT[suffixL5]
-                elif suffixL4 in FREQDICT:
+                if suffixL4 in FREQDICT:
                     tag = FREQDICT[suffixL4] 
                 elif suffixL3 in FREQDICT:
                     tag = FREQDICT[suffixL3]
                 elif suffixL2 in FREQDICT:
                     tag = FREQDICT[suffixL2]
-                elif decodedW[0].isupper():
-                    tag = FREQDICT["TAG4UNKN-CAPITAL"]
+                elif suffixL1 in FREQDICT:
+                    tag = FREQDICT[suffixL1]
                 else:
                     tag = FREQDICT["TAG4UNKN-WORD"]
+
+                    
+                # suffixL2 = suffixL3 = suffixL4 = suffixL5 = None
+                # wLength = len(decodedW)
+                # if wLength >= 4:
+                #     suffixL3 = ".*" + decodedW[-3:]
+                #     suffixL2 = ".*" + decodedW[-2:]
+                # if wLength >= 5:
+                #     suffixL4 = ".*" + decodedW[-4:]
+                # if wLength >= 6:
+                #     suffixL5 = ".*" + decodedW[-5:]
+                
+                # if suffixL5 in FREQDICT:
+                #     tag = FREQDICT[suffixL5]
+                # elif suffixL4 in FREQDICT:
+                #     tag = FREQDICT[suffixL4] 
+                # elif suffixL3 in FREQDICT:
+                #     tag = FREQDICT[suffixL3]
+                # elif suffixL2 in FREQDICT:
+                #     tag = FREQDICT[suffixL2]
+                # elif decodedW[0].isupper():
+                #     tag = FREQDICT["TAG4UNKN-CAPITAL"]
+                # else:
+                #     tag = FREQDICT["TAG4UNKN-WORD"]
            
         taggedSen.append(word + "/" + tag)                                
     
