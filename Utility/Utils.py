@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 def getWordTag(wordTag):
     if wordTag == "///":
         return "/", "/"
@@ -9,6 +10,7 @@ def getWordTag(wordTag):
     word = wordTag[:index].strip()
     tag = wordTag[index + 1:].strip()
     return word, tag
+
 
 def getRawText(inputFile, outFile):
     out = open(outFile, "w", encoding="utf-8")
@@ -20,7 +22,8 @@ def getRawText(inputFile, outFile):
             out.write(word + " ")
         out.write("\n")
     out.close()
-    
+
+
 def readDictionary(inputFile):
     dictionary = {}
     lines = open(inputFile, "r", encoding="utf-8").readlines()
@@ -28,4 +31,3 @@ def readDictionary(inputFile):
         wordtag = line.strip().split()
         dictionary[wordtag[0]] = wordtag[1]
     return dictionary
-
