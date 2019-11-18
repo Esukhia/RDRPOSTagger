@@ -1,5 +1,7 @@
 ## RDRPOSTagger ##
 
+Note: see [rdr-data](https://github.com/Esukhia/rdr-data) for models for Tibetan.
+
 **Usage**
 
 Example:
