@@ -126,16 +126,10 @@ def getObjectDictionary(initializedCorpus, goldStandardCorpus):
             goldWord, correctTag = getWordTag(goldWordTags[k])
 
             if initWord != goldWord:
-                print(
-                    "\nERROR (Raw texts are mismatched || Some sentence is incorrectly formatted):"
-                )
-                print(
-                    str(i + 1) + "th initialized sentence:   " + " ".join(initWordTags)
-                )
-                print(
-                    str(i + 1) + "th gold standard sentence: " + " ".join(goldWordTags)
-                )
-                return None
+                msg = "\nERROR (Raw texts are mismatched || Some sentence is incorrectly formatted):"
+                msg += "\n" + str(i + 1) + "th initialized sentence:   " + " ".join(initWordTags)
+                msg += "\n" + str(i + 1) + "th gold standard sentence: " + " ".join(goldWordTags)
+                raise SyntaxError(msg)
 
             if initTag not in objects.keys():
                 objects[initTag] = {}

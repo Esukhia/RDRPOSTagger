@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.1.1](https://github.com/Esukhia/bordr/releases/tag/v0.1.1) - 20191119
+### Fixed
+ * bad parse didn't trigger error
+
 ## [0.1.0](https://github.com/Esukhia/bordr/releases/tag/v0.1.0) - 20191119
 ### Removed
  * all language data
