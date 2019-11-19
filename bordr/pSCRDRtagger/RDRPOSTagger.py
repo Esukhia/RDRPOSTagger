@@ -99,7 +99,7 @@ def rdr(to_process, mode=None, model=None, lexicon=None, string=False, verbose=F
             % (to_process, to_process + ".INIT")
         )
         rdrTree = SCRDRTreeLearner(THRESHOLD[0], THRESHOLD[1])
-        rdrTree.learnRDRTree(to_process + ".INIT", to_process)
+        log.extend(rdrTree.learnRDRTree(to_process + ".INIT", to_process, verbose=verbose))
         log.append("\nWrite the learned tree model to file " + to_process + ".RDR")
         rdrTree.writeToFile(to_process + ".RDR")
         log.append("\nDone!")

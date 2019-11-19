@@ -16,4 +16,4 @@ expected_dump = Path("./input/rdr_input.txt").read_text(encoding="utf-8-sig")
 actual_dump = Path("./input/rdr_input.txt.RAW.TAGGED").read_text(encoding="utf-8-sig")
 
 ev = evaluate(file, "./input/rdr_input.txt.RAW.TAGGED")
-print()
+print(ev)

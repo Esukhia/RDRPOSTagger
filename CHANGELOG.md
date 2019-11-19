@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.1.3](https://github.com/Esukhia/bordr/releases/tag/v0.1.3) - 20191119
+### Fixed
+ * print of rules being built is now integrated in the log
+
 ## [0.1.2](https://github.com/Esukhia/bordr/releases/tag/v0.1.2) - 20191119
 ### Changed
  * remove error catching in rdr()

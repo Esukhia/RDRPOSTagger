@@ -284,14 +284,16 @@ class SCRDRTreeLearner(SCRDRTree):
             currentNode = node
             self.buildNodeForObjectSet(needToCorrectObjects, currentNode)
 
-    def learnRDRTree(self, initializedCorpus, goldStandardCorpus):
+    def learnRDRTree(self, initializedCorpus, goldStandardCorpus, verbose):
         self.root = Node("True", 'object.conclusion = "NN"', None, None, None, [], 0)
 
         objects = getObjectDictionary(initializedCorpus, goldStandardCorpus)
 
         currentNode = self.root
+        log = []
         for initializedTag in objects:
-            print("\n===> Building exception rules for tag %s" % initializedTag)
+            if verbose:
+                log.append(f"\n===> Building exception rules for tag {initializedTag}")
             correctCounts = {}
             for object in objects[initializedTag][initializedTag]:
                 rules = generateRules(object)
@@ -356,3 +358,5 @@ class SCRDRTreeLearner(SCRDRTree):
                         correctCounts[rule] -= 1
 
                 self.buildNodeForObjectSet(needToCorrectObjects, currentNode1)
+
+        return log
