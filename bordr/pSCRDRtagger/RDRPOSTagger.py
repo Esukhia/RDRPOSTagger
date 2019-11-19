@@ -72,55 +72,49 @@ def rdr(to_process, mode=None, model=None, lexicon=None, string=False, verbose=F
         raise SyntaxError("mode should either be train or tag.")
 
     if mode == "train":
-        try:
-            log = []
-            log.append("\n====== Start ======")
-            log.append(
-                "\nGenerate from the gold standard training corpus a lexicon "
-                + to_process
-                + ".DICT"
-            )
-            log.append(createLexicon(to_process, "full"))
-            log.append(createLexicon(to_process, "short"))
-            log.append(
-                "\nExtract from the gold standard training corpus a raw text corpus "
-                + to_process
-                + ".RAW"
-            )
-            getRawText(to_process, to_process + ".RAW")
-            log.append(
-                "\nPerform initially POS tagging on the raw text corpus, to generate "
-                + to_process
-                + ".INIT"
-            )
-            DICT = readDictionary(to_process + ".sDict")
-            initializeCorpus(DICT, to_process + ".RAW", to_process + ".INIT")
-            log.append(
-                "\nLearn a tree model of rules for POS tagging from %s and %s"
-                % (to_process, to_process + ".INIT")
-            )
-            rdrTree = SCRDRTreeLearner(THRESHOLD[0], THRESHOLD[1])
-            rdrTree.learnRDRTree(to_process + ".INIT", to_process)
-            log.append("\nWrite the learned tree model to file " + to_process + ".RDR")
-            rdrTree.writeToFile(to_process + ".RDR")
-            log.append("\nDone!")
-            return "".join(log) if verbose else 0
-        except Exception as e:
-            return "ERROR ==> " + str(e)
+        log = []
+        log.append("\n====== Start ======")
+        log.append(
+            "\nGenerate from the gold standard training corpus a lexicon "
+            + to_process
+            + ".DICT"
+        )
+        log.append(createLexicon(to_process, "full"))
+        log.append(createLexicon(to_process, "short"))
+        log.append(
+            "\nExtract from the gold standard training corpus a raw text corpus "
+            + to_process
+            + ".RAW"
+        )
+        getRawText(to_process, to_process + ".RAW")
+        log.append(
+            "\nPerform initially POS tagging on the raw text corpus, to generate "
+            + to_process
+            + ".INIT"
+        )
+        DICT = readDictionary(to_process + ".sDict")
+        initializeCorpus(DICT, to_process + ".RAW", to_process + ".INIT")
+        log.append(
+            "\nLearn a tree model of rules for POS tagging from %s and %s"
+            % (to_process, to_process + ".INIT")
+        )
+        rdrTree = SCRDRTreeLearner(THRESHOLD[0], THRESHOLD[1])
+        rdrTree.learnRDRTree(to_process + ".INIT", to_process)
+        log.append("\nWrite the learned tree model to file " + to_process + ".RDR")
+        rdrTree.writeToFile(to_process + ".RDR")
+        log.append("\nDone!")
+        return "".join(log) if verbose else 0
 
     if mode == "tag":
-        try:
-            log = []
-            r = RDRPOSTagger()
-            log.append("\n=> Read a POS tagging model from " + model)
-            r.constructSCRDRtreeFromRDRfile(model)
-            log.append("\n=> Read a lexicon from " + lexicon)
-            DICT = readDictionary(lexicon)
-            log.append("\n=> Perform POS tagging on " + to_process)
-            if string:
-                r.tagRawSentence(DICT, to_process)
-            else:
-                r.tagRawCorpus(DICT, to_process)
-            return "".join(log) if verbose else 0
-        except Exception as e:
-            return "ERROR ==> " + str(e)
+        log = []
+        r = RDRPOSTagger()
+        log.append("\n=> Read a POS tagging model from " + model)
+        r.constructSCRDRtreeFromRDRfile(model)
+        log.append("\n=> Read a lexicon from " + lexicon)
+        DICT = readDictionary(lexicon)
+        log.append("\n=> Perform POS tagging on " + to_process)
+        if string:
+            r.tagRawSentence(DICT, to_process)
+        else:
+            r.tagRawCorpus(DICT, to_process)
+        return "".join(log) if verbose else 0
