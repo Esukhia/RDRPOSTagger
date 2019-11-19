@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import os
+
 from multiprocessing import Pool
 
 from ..InitialTagger.InitialTagger4Bo import initializeCorpus, initializeSentence

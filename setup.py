@@ -26,8 +26,8 @@ def read(fname):
 
 
 setuptools.setup(
-    name="RDR",
-    version=get_version("__version__", "RDR"),  # edit version in pybo/__init__.py
+    name="bordr",
+    version=get_version("__version__", "bordr"),  # edit version in pybo/__init__.py
     author="Dat Quoc Nguyen",
     author_email="dqnguyen@unimelb.edu.au",
     description="A  fast and accurate POS and morphological tagging toolkit, lightly adapted to Tibetan language.",
