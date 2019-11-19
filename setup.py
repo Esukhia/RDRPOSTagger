@@ -48,7 +48,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: GNU General Public License",
+        "License :: OSI Approved :: GNU General Public License (GPL)",
         "Natural Language :: Tibetan",
     ],
     package_data={},
