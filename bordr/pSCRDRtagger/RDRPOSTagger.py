@@ -95,7 +95,7 @@ def rdr(to_process, mode=None, model=None, lexicon=None, string=False, verbose=F
         DICT = readDictionary(to_process + ".sDict")
         BOTOK_SDICT = {} # TO CREATE INIT FILE ACCORDING TO BOTOK SEGMENTATION
         for word, tag in DICT.items():
-            BOTOK_SDICT[word] = tag
+            BOTOK_SDICT[word] = 'U'
         initializeCorpus(BOTOK_SDICT, to_process + ".RAW", to_process + ".INIT")
         log.append(
             "\nLearn a tree model of rules for POS tagging from %s and %s"

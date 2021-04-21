@@ -21,3 +21,8 @@ and upload on twine (version >= `1.11.0`) with:
 ```bash
 twine upload dist/*
 ```
+
+### Latest change
+The SDICT content passed to generate INIT file is changed.
+The words in SDICT are given U(Unique tag from bilou tagging system) tag as those words are segmented as Unique token by botok.
+With that changed SDICT content, we will get INIT file based on botok segmentation. Hence rules generated will be able to resolve botok segmentation ambiguity.
