@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from bordr import rdr, evaluate
+from rdr-bo import rdr, evaluate
 
 file = Path("./input/rdr_input.txt")
 dump = file.read_text(encoding="utf-8-sig")

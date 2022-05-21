@@ -4,19 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.1.3](https://github.com/Esukhia/bordr/releases/tag/v0.1.3) - 20191119
+## [0.1.3](https://github.com/Esukhia/rdr-bo/releases/tag/v0.1.3) - 20191119
 ### Fixed
  * print of rules being built is now integrated in the log
 
-## [0.1.2](https://github.com/Esukhia/bordr/releases/tag/v0.1.2) - 20191119
+## [0.1.2](https://github.com/Esukhia/rdr-bo/releases/tag/v0.1.2) - 20191119
 ### Changed
  * remove error catching in rdr()
 
-## [0.1.1](https://github.com/Esukhia/bordr/releases/tag/v0.1.1) - 20191119
+## [0.1.1](https://github.com/Esukhia/rdr-bo/releases/tag/v0.1.1) - 20191119
 ### Fixed
  * bad parse didn't trigger error
 
-## [0.1.0](https://github.com/Esukhia/bordr/releases/tag/v0.1.0) - 20191119
+## [0.1.0](https://github.com/Esukhia/rdr-bo/releases/tag/v0.1.0) - 20191119
 ### Removed
  * all language data
  * all `InitialTagger`s except for a generic one adapted to Tibetan
@@ -33,5 +33,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
  * `evaluate()` function added to `Utility/Eval.py` and depending on the presence/absence of the `fullDictFile` arg,
     it runs either `computeAccuracies()` or `computeAccuracy()`
  * interface into RDRPOSTagger: `rdr()`, `evaluate()`, `NUMBER_OF_PROCESSES` and `THRESHOLD` are exposed
-    on the root level of bordr. the two constants to configure RDRPOSTagger, `rdr()` to train and tag data,
+    on the root level of rdr-bo. the two constants to configure RDRPOSTagger, `rdr()` to train and tag data,
     `evaluate()` to check the performance of the trained model.
